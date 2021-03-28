@@ -1,5 +1,3 @@
-import { createContext } from "react";
-
 export interface Movie {
   poster_path: string,
   adult: boolean,
@@ -13,9 +11,6 @@ export interface Movie {
   popularity: number,
   vote_count: number,
   video: boolean,
-  vote_average: number
-}
-
-export type MovieProviderProps = {
-  movies: Movie[]
+  vote_average: number,
+  liked?: boolean
 }
