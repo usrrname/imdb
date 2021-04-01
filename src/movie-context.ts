@@ -1,18 +1,28 @@
-import { createContext } from 'react';
+import { createContext, ReactNode } from 'react';
 import { Movie } from './models/interfaces';
 
-
+export type MovieProviderProps = {
+  children: ReactNode,
+}
 export interface MoviesContextData {
-  movies: Movie[]
+  movies: Movie[],
   isLoading: boolean,
-  fetchMovies: () => void,
+  likedMoviesList: Movie[],
+  likeMovie: (movie: Movie) => void,
+  unLikeMovie: (movie: Movie) => void,
 }
 
-export const moviesContextDefault: MoviesContextData = {
+const defaultValue: MoviesContextData = {
   movies: [],
-  isLoading: true,
-  fetchMovies: () => null
+  isLoading: false,
+  likedMoviesList: [],
+  likeMovie: (movie: Movie) => { },
+  unLikeMovie: (movie: Movie) => { },
 }
 
-export const MoviesContext = createContext<MoviesContextData>(moviesContextDefault)
+const MovieContext = createContext<MoviesContextData>(defaultValue);
+
+export default MovieContext;
+export const MovieContextProvider = MovieContext.Provider;
+export const MovieContextConsumer = MovieContext.Consumer;
 

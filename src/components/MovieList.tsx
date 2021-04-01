@@ -1,23 +1,22 @@
-import { useContext } from "react";
-import { Movie } from "../models/interfaces";
-import { MoviesContext } from "../movie-context";
 
-export const MovieList = () => {
-  const { movies } = useContext(MoviesContext);
+import { Movie } from "../models/interfaces";
+import Context from "../movie-context";
+import React, { useContext } from 'react';
+import { MovieItem } from "./MovieItem";
+
+export const MovieList: React.FC = () => {
+
+  const { movies, likeMovie, unLikeMovie } = useContext(Context);
 
   return (
     <div className="movies-browser">
       { movies.map((movie: Movie) => {
         return (
-          <div key={movie.id.toString()}>
-            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.overview} />
-            <p>{movie.original_title}</p>
-            <p>{movie.popularity}</p>
-            <input type="checkbox" onClick={() => { }}></input>
-          </div>
+          <MovieItem movie={movie} likeMovie={likeMovie} unLikeMovie={unLikeMovie}></MovieItem>
         )
       })
       }
     </div>
   )
 }
+

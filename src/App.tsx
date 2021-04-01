@@ -1,12 +1,22 @@
+
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { Home } from './views/Home';
+import { MovieContextProvider } from './movie-context';
 import { useMovieData } from './hooks/useMovieData';
-import { MoviesContext } from './movie-context';
+import { useLikeToggle } from './hooks/useLikeToggle';
+import { MovieList } from './components/MovieList';
 
 export const App = () => {
+  let { movies, isLoading } = useMovieData();
+  let { likeMovie, unLikeMovie, likedMoviesList } = useLikeToggle();
 
-  const moviesContextValue = useMovieData();
+  const value: any = {
+    movies,
+    isLoading,
+    likeMovie,
+    likedMoviesList,
+    unLikeMovie
+  }
 
   return (
     <Router>
@@ -17,22 +27,18 @@ export const App = () => {
         </ul>
       </nav>
       <Switch>
-        <div>
-          <Route path='/liked'>
+        <MovieContextProvider value={value}>
+          <Route exact path='/'>
+            {isLoading ? <p>Loading...</p> : <MovieList />}
+          </Route>
+          <Route exact path='/liked'>
             <h2>Liked</h2>
+            {likedMoviesList && likedMoviesList.length > 0 ? <MovieList /> : <p>You don't have any faved movies!</p>}
           </Route>
-          <Route path='/'>
-            <MoviesContext.Provider value={moviesContextValue} >
-              <Home />
-            </MoviesContext.Provider>
-
-          </Route>
-        </div>
+        </MovieContextProvider>
       </Switch>
     </Router>
   )
 }
 
 export default App;
-
-

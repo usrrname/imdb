@@ -3,12 +3,12 @@ import { useState, useCallback, useEffect } from "react";
 import { Movie } from "../models/interfaces";
 import { MoviesContextData } from "../movie-context";
 
-export function useMovieData(): MoviesContextData {
+export function useMovieData(): Partial<MoviesContextData> {
 
   let [movies, setMovies] = useState<Movie[]>([])
   const [isLoading, setLoading] = useState<boolean>(false);
 
-  const fetchMovies = useCallback(() => {
+  const getPopularMovies = useCallback(() => {
     setLoading(true);
     axios.get(`${process.env.REACT_APP_POPULARMOVIES_URL}?api_key=${process.env.REACT_APP_API_KEY}&page=1`)
       .then(res => {
@@ -21,11 +21,6 @@ export function useMovieData(): MoviesContextData {
       });
   }, [setMovies])
 
-  useEffect(() => fetchMovies(), [fetchMovies]);
-
-  return {
-    movies,
-    fetchMovies,
-    isLoading
-  }
+  useEffect(() => getPopularMovies(), [getPopularMovies]);
+  return { isLoading, movies }
 }

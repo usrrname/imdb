@@ -14,3 +14,9 @@ export interface Movie {
   vote_average: number,
   liked?: boolean
 }
+
+export type MovieItemProps = {
+  movie: Movie;
+  likeMovie: (movie: Movie) => void,
+  unLikeMovie: (movie: Movie) => void
+}
