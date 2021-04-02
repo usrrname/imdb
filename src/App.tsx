@@ -5,6 +5,7 @@ import { MovieContextProvider } from './movie-context';
 import { useMovieData } from './hooks/useMovieData';
 import { useLikeToggle } from './hooks/useLikeToggle';
 import { MovieList } from './components/MovieList';
+import { LikedMoviesList } from './components/LikedMovieList';
 
 export const App = () => {
   let { movies, isLoading } = useMovieData();
@@ -27,15 +28,17 @@ export const App = () => {
         </ul>
       </nav>
       <Switch>
-        <MovieContextProvider value={value}>
-          <Route exact path='/'>
-            {isLoading ? <p>Loading...</p> : <MovieList />}
-          </Route>
-          <Route exact path='/liked'>
-            <h2>Liked</h2>
-            {likedMoviesList && likedMoviesList.length > 0 ? <MovieList /> : <p>You don't have any faved movies!</p>}
-          </Route>
-        </MovieContextProvider>
+        <div className="app-content">
+          <MovieContextProvider value={value}>
+            <Route exact path='/'>
+              {isLoading ? <p>Loading...</p> : <MovieList />}
+            </Route>
+            <Route exact path='/liked'>
+              {likedMoviesList && likedMoviesList.length > 0 ? <LikedMoviesList /> : <p>You don't have any faved movies!</p>}
+            </Route>
+          </MovieContextProvider>
+        </div>
+
       </Switch>
     </Router>
   )

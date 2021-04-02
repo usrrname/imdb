@@ -7,10 +7,15 @@ export function useLikeToggle(): Partial<MoviesContextData> {
   let [likedMoviesList, setlikedMoviesList] = useState<Movie[]>([]);
 
   const likeMovie = useCallback((movie: Movie): void => {
-    let likedMoviesListCopy = [...likedMoviesList];
     movie.liked = true;
-    likedMoviesListCopy = likedMoviesListCopy.concat(movie);
-    setlikedMoviesList(likedMoviesListCopy);
+    let likedMoviesListCopy = [...likedMoviesList];
+    // check if movie exists, can't add the same movie twice
+    if (likedMoviesListCopy.some(m => m.id === movie.id)) {
+      return;
+    } else {
+      likedMoviesListCopy = likedMoviesListCopy.concat(movie);
+      setlikedMoviesList(likedMoviesListCopy);
+    }
   }, [likedMoviesList]);
 
   const unLikeMovie = useCallback((movie: Movie): void => {

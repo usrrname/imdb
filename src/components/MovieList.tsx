@@ -6,13 +6,14 @@ import { MovieItem } from "./MovieItem";
 
 export const MovieList: React.FC = () => {
 
+
   const { movies, likeMovie, unLikeMovie } = useContext(Context);
 
   return (
     <div className="movies-browser">
       { movies.map((movie: Movie) => {
         return (
-          <MovieItem movie={movie} likeMovie={likeMovie} unLikeMovie={unLikeMovie}></MovieItem>
+          <MovieItem movie={movie} key={movie.id} likeMovie={likeMovie} unLikeMovie={unLikeMovie}></MovieItem>
         )
       })
       }

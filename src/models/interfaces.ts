@@ -17,6 +17,6 @@ export interface Movie {
 
 export type MovieItemProps = {
   movie: Movie;
-  likeMovie: (movie: Movie) => void,
-  unLikeMovie: (movie: Movie) => void
+  likeMovie?: (movie: Movie) => void,
+  unLikeMovie?: (movie: Movie) => void
 }

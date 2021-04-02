@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+.app-content {
+	display: flex;
+	justify-content: center;
+	flex-flow: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.movies-browser {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: auto;
+	flex: 1 1 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.movie-tile {
+	padding: 0 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.like-btn {
+	display: flex;
+	position: relative;
+	top: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 0 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+label.like-label > input[type="checkbox"] {
+	cursor: pointer;
+	appearance: none;
+	width: max-content;
+	height: max-content;
+	padding: 0.25rem;
+	top: 2.5rem;
+	position: relative;
+}
+
+label > input[type="checkbox"]::before {
+	content: "\1F90D";
+	font-size: 1.25rem;
+	display: inline;
+	border: transparent;
+	transition: 0.3s ease-in-out;
+}
+
+label > input[type="checkbox"]:checked::before {
+	content: "\1F497";
+	font-size: 1.25rem;
+	transition: 0.3s ease-in-out;
 }
