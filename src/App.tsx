@@ -27,19 +27,18 @@ export const App = () => {
           <li><Link to="/liked">Liked</Link></li>
         </ul>
       </nav>
-      <Switch>
-        <div className="app-content">
-          <MovieContextProvider value={value}>
+      <div className="app-content">
+        <MovieContextProvider value={value}>
+          <Switch>
             <Route exact path='/'>
               {isLoading ? <p>Loading...</p> : <MovieList />}
             </Route>
             <Route exact path='/liked'>
               {likedMoviesList && likedMoviesList.length > 0 ? <LikedMoviesList /> : <p>You don't have any faved movies!</p>}
             </Route>
-          </MovieContextProvider>
-        </div>
-
-      </Switch>
+          </Switch>
+        </MovieContextProvider>
+      </div>
     </Router>
   )
 }
