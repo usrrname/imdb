@@ -9,7 +9,7 @@ export interface MoviesContextData {
   isLoading: boolean,
   likedMoviesList: Movie[],
   likeMovie: (movie: Movie) => void,
-  unLikeMovie: (movie: Movie) => void,
+  unLikeMovie: (movie: Movie) => void
 }
 
 const defaultValue: MoviesContextData = {
