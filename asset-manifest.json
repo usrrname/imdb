@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/imdb/static/css/main.d9b94043.chunk.css",
-    "main.js": "/imdb/static/js/main.0262b5ec.chunk.js",
-    "main.js.map": "/imdb/static/js/main.0262b5ec.chunk.js.map",
+    "main.js": "/imdb/static/js/main.cf780936.chunk.js",
+    "main.js.map": "/imdb/static/js/main.cf780936.chunk.js.map",
     "runtime-main.js": "/imdb/static/js/runtime-main.331c0460.js",
     "runtime-main.js.map": "/imdb/static/js/runtime-main.331c0460.js.map",
-    "static/js/2.6b74eb9e.chunk.js": "/imdb/static/js/2.6b74eb9e.chunk.js",
-    "static/js/2.6b74eb9e.chunk.js.map": "/imdb/static/js/2.6b74eb9e.chunk.js.map",
+    "static/js/2.054690e3.chunk.js": "/imdb/static/js/2.054690e3.chunk.js",
+    "static/js/2.054690e3.chunk.js.map": "/imdb/static/js/2.054690e3.chunk.js.map",
     "static/js/3.7cb76639.chunk.js": "/imdb/static/js/3.7cb76639.chunk.js",
     "static/js/3.7cb76639.chunk.js.map": "/imdb/static/js/3.7cb76639.chunk.js.map",
     "index.html": "/imdb/index.html",
     "static/css/main.d9b94043.chunk.css.map": "/imdb/static/css/main.d9b94043.chunk.css.map",
-    "static/js/2.6b74eb9e.chunk.js.LICENSE.txt": "/imdb/static/js/2.6b74eb9e.chunk.js.LICENSE.txt"
+    "static/js/2.054690e3.chunk.js.LICENSE.txt": "/imdb/static/js/2.054690e3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.331c0460.js",
-    "static/js/2.6b74eb9e.chunk.js",
+    "static/js/2.054690e3.chunk.js",
     "static/css/main.d9b94043.chunk.css",
-    "static/js/main.0262b5ec.chunk.js"
+    "static/js/main.cf780936.chunk.js"
   ]
 }
